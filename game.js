@@ -1,11 +1,11 @@
 import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js';
 const $=id=>document.getElementById(id);
-const scene=new THREE.Scene();scene.background=new THREE.Color(0x9bc9d2);scene.fog=new THREE.Fog(0x9bc9d2,80,230);
+const scene=new THREE.Scene();scene.background=new THREE.Color(0x6e8fa4);scene.fog=new THREE.Fog(0x788b99,95,285);
 const camera=new THREE.PerspectiveCamera(65,innerWidth/innerHeight,.1,500);
-const renderer=new THREE.WebGLRenderer({antialias:true,powerPreference:'high-performance'});renderer.setPixelRatio(Math.min(devicePixelRatio,1.5));renderer.setSize(innerWidth,innerHeight);renderer.shadowMap.enabled=true;renderer.outputColorSpace=THREE.SRGBColorSpace;$('game').appendChild(renderer.domElement);
-scene.add(new THREE.HemisphereLight(0xeaf8ff,0x58604b,2));const sun=new THREE.DirectionalLight(0xfff1d2,2.3);sun.position.set(-45,80,35);sun.castShadow=true;sun.shadow.mapSize.set(1024,1024);scene.add(sun);
+const renderer=new THREE.WebGLRenderer({antialias:true,powerPreference:'high-performance'});renderer.setPixelRatio(Math.min(devicePixelRatio,1.65));renderer.setSize(innerWidth,innerHeight);renderer.shadowMap.enabled=true;renderer.shadowMap.type=THREE.PCFSoftShadowMap;renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=1.12;renderer.outputColorSpace=THREE.SRGBColorSpace;$('game').appendChild(renderer.domElement);
+scene.add(new THREE.HemisphereLight(0xb4d8ff,0x37313a,1.45));const sun=new THREE.DirectionalLight(0xffc58b,3.0);sun.position.set(-45,65,35);sun.castShadow=true;sun.shadow.mapSize.set(1536,1536);sun.shadow.camera.left=-95;sun.shadow.camera.right=95;sun.shadow.camera.top=95;sun.shadow.camera.bottom=-95;scene.add(sun);const fillLight=new THREE.DirectionalLight(0x77b8ff,.7);fillLight.position.set(35,18,-50);scene.add(fillLight);
 const mat=(c,r=.85,m=0)=>new THREE.MeshStandardMaterial({color:c,roughness:r,metalness:m});
-const M={grass:mat(0x557b4b),road:mat(0x343b41),line:mat(0xe6d7a0),window:mat(0x78a8b9,.35,.12),trunk:mat(0x70503b),leaf:mat(0x37794d),taxi:mat(0xf1bd28,.38,.1),tire:mat(0x171c20),glass:mat(0x5e8794,.3,.1),black:mat(0x222a30),skin:mat(0xe1b18b),shirt:mat(0x4a8ac0)};
+const M={grass:mat(0x3e6145),road:mat(0x242a32,.72,.12),line:mat(0xe5d5a3,.5),window:mat(0x426b83,.24,.24),trunk:mat(0x594133),leaf:mat(0x2e6344),taxi:mat(0xf1bd28,.3,.18),tire:mat(0x11151a,.8),glass:mat(0x355b70,.2,.32),black:mat(0x151a20),skin:mat(0xe1b18b),shirt:mat(0x4a8ac0)};
 function mesh(g,m,p=scene,x=0,y=0,z=0){const o=new THREE.Mesh(g,m);o.position.set(x,y,z);o.castShadow=true;o.receiveShadow=true;p.add(o);return o}
 function box(p,w,h,d,m,x,y,z){return mesh(new THREE.BoxGeometry(w,h,d),m,p,x,y,z)}
 mesh(new THREE.PlaneGeometry(500,500),M.grass,scene,0,-.16,0).rotation.x=-Math.PI/2;
