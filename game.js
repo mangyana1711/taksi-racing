@@ -1,4 +1,4 @@
-import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js';
+const THREE = await import('https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js').catch(() => import('https://unpkg.com/three@0.160.0/build/three.module.js')).catch(() => import('https://esm.sh/three@0.160.0'));
 const $=id=>document.getElementById(id);
 const scene=new THREE.Scene();scene.background=new THREE.Color(0x6e8fa4);scene.fog=new THREE.Fog(0x788b99,95,285);
 const camera=new THREE.PerspectiveCamera(65,innerWidth/innerHeight,.1,500);
