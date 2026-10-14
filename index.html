@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="theme-color" content="#111923">
+<title>TAKSI RACING</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="game"></div>
+<header id="topbar">
+  <div class="brand"><span class="taxi-icon">🚕</span><div><b>TAKSI RACING</b><small>OPEN CITY DRIVER</small></div></div>
+  <div class="money"><small>SALDO</small><strong id="money">Rp 125.000</strong></div>
+</header>
+<section id="hud">
+  <div class="pill"><span>🚗</span><b id="carname">Taksi Kuning</b></div>
+  <div class="pill"><span>⚡</span><b id="speed">0 km/j</b></div>
+  <div class="pill"><span>🧰</span><b id="condition">Mobil 100%</b></div>
+</section>
+<div id="mission">
+  <div class="mission-title"><span class="pulse"></span><b id="mission-head">KOTA TERBUKA</b></div>
+  <div id="mission-text">Jelajahi kota. Dekati penumpang untuk menjemputnya.</div>
+  <div class="mission-foot"><span id="district">PUSAT KOTA</span><span id="fare">Tarif: dinamis</span></div>
+</div>
+<div id="toast" aria-live="polite"></div>
+<div id="controls">
+  <div class="steering">
+    <button id="left" class="control" aria-label="Belok kiri">◀</button>
+    <button id="right" class="control" aria-label="Belok kanan">▶</button>
+  </div>
+  <div class="drive">
+    <button id="brake" class="pedal brake">REM</button>
+    <button id="gas" class="pedal gas">GAS</button>
+  </div>
+</div>
+<div id="utility">
+  <button id="cameraBtn" class="utility-btn">📷 <span>KAMERA</span></button>
+  <button id="mapBtn" class="utility-btn">🗺️ <span>PETA</span></button>
+  <button id="garageBtn" class="utility-btn">🔧 <span>BENGKEL</span></button>
+</div>
+<div id="mapCard" class="panel hidden">
+  <div class="panel-head"><h2>🗺️ PETA KOTA</h2><button class="close" data-close="mapCard">✕</button></div>
+  <p>Jelajahi empat wilayah. Ikuti jalan dan cari ikon penumpang 👤 di dunia game.</p>
+  <div class="district-list">
+    <div><i class="dot downtown"></i><b>Pusat Kota</b><small>Gedung tinggi, tarif normal</small></div>
+    <div><i class="dot kampung"></i><b>Kampung</b><small>Jalan kecil dan rumah</small></div>
+    <div><i class="dot industry"></i><b>Kawasan Industri</b><small>Gudang dan truk</small></div>
+    <div><i class="dot beach"></i><b>Pinggir Danau</b><small>Pemandangan air dan taman</small></div>
+  </div>
+  <div class="hint">Tips: berkendara mendekati penumpang sampai muncul notifikasi jemput otomatis. Antar ke titik tujuan untuk menerima bayaran.</div>
+</div>
+<div id="garageCard" class="panel hidden">
+  <div class="panel-head"><h2>🔧 BENGKEL & SHOWROOM</h2><button class="close" data-close="garageCard">✕</button></div>
+  <div class="garage-tabs">
+    <button class="tab active" data-tab="upgrade">UPGRADE</button>
+    <button class="tab" data-tab="cars">MOBIL</button>
+    <button class="tab" data-tab="repair">SERVIS</button>
+  </div>
+  <div id="garageContent"></div>
+  <p class="hint">Bengkel dapat dibuka kapan saja. Pembelian mobil dan upgrade memakai saldo perjalananmu.</p>
+</div>
+<div id="startScreen">
+  <div class="start-card">
+    <div class="hero-icon">🚕</div>
+    <div class="eyebrow">OPEN WORLD TAXI SIMULATOR</div>
+    <h1>TAKSI <span>RACING</span></h1>
+    <p>Jelajahi kota, jemput penumpang, antar sampai tujuan, kumpulkan uang, lalu upgrade taksi impianmu.</p>
+    <div class="feature-row"><span>🌆 4 wilayah</span><span>💵 Sistem tarif</span><span>🔧 Upgrade mobil</span></div>
+    <button id="startBtn">MULAI MENYETIR <span>➜</span></button>
+    <small>Kontrol layar sentuh · Mode lanskap disarankan</small>
+  </div>
+</div>
+<script type="module" src="game.js"></script>
+</body>
+</html>
